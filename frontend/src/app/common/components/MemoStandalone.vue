@@ -58,5 +58,15 @@ export default {
   width: fit-content;
   box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
   touch-action: manipulation;
+
+  h2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
 }
 </style>
