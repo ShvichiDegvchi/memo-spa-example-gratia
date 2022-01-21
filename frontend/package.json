@@ -153,6 +153,7 @@
     "core-js": "^3.20.3",
     "css-loader": "^6.5.1",
     "css-mqpacker": "^7.0.0",
+    "dayjs": "^1.10.7",
     "delete-empty": "^3.0.0",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
