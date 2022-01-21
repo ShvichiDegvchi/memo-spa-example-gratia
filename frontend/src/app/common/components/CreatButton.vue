@@ -5,6 +5,7 @@
     v-ripple
     type="button"
     aria-label="新規メモを追加する"
+    @click="$store.dispatch('appModal', true)"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

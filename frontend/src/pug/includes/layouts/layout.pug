@@ -82,6 +82,11 @@ html(lang=lang itemscope itemtype="https://schema.org/WebPage" class="no-js")
       app(v-cloak)
         template(#header)
           app-header
+        template(#footer)
+          app-footer
+            template(#author) 出口修一
         block main
+
+        template(#create-memo)
 
     script(src="/common/js/bundle.min.js" async type="module" crossorigin)

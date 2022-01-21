@@ -1,12 +1,20 @@
 <docs></docs>
 
 <template>
-  <header class="app-header">
+  <header
+    class="app-header"
+    itemscope
+    itemtype="https://schema.org/WPHeader"
+    role="banner"
+  >
     <div>
       <div class="app-header__logo">
         <Logo :name="$props.name" />
       </div>
-      <div class="app-header__btn">
+      <div
+        v-if="_createButton"
+        class="app-header__btn"
+      >
         <Button />
       </div>
     </div>
@@ -34,7 +42,11 @@ export default {
   data: function() {
     return {};
   },
-  computed: {},
+  computed: {
+    _createButton: function() {
+      return this.$store.getters.createButton;
+    },
+  },
   watch: {},
   beforeCreate: function() {},
   created: function() {},

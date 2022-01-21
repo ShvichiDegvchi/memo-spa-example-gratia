@@ -89,6 +89,8 @@ export default {
   border-radius: .4rem;
   box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
   touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(#000, 0);
+  -webkit-touch-callout: none;
 
   &:only-child { height: 100%; }
 
@@ -133,6 +135,8 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
+      width: 2.4rem;
+      height: 2.4rem;
       transform: translateY(-50%);
     }
   }

@@ -10,7 +10,12 @@ import './app/common/scss/style.scss';
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import components from './app/common/components/vue.components.js';
+import route from './app/common/components/vue.route.js';
 import store from './app/common/components/vue.store.js';
+
+// https://router.vuejs.org/ja/
+import Router from 'vue-router';
+Vue.use(Router);
 
 // https://vue-scrollto.netlify.app/
 import VueScrollTo from 'vue-scrollto';
@@ -68,8 +73,9 @@ Vue.config.productionTip = true;
 
 /* eslint-disable no-new */
 new Vue({
-  store,
   components,
+  route,
+  store,
   vuetify: new Vuetify({
     theme: {
       disable: true,

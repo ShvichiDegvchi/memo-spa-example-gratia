@@ -10,7 +10,26 @@
           <slot />
         </div>
       </div>
+
+      <slot name="footer" />
     </div>
+
+    <transition name="modal">
+      <div
+        v-if="_appModal"
+        :aria-modal="_appModal ? _appModal : false"
+        class="app__modal"
+      >
+        <div
+          v-ripple
+          @click="$store.dispatch('appModal', false)"
+          role="presentation"
+        />
+        <div>
+          <slot name="create-memo" />
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -25,7 +44,11 @@ export default {
   data: function() {
     return {};
   },
-  computed: {},
+  computed: {
+    _appModal: function() {
+      return this.$store.getters.appModal;
+    },
+  },
   watch: {},
   beforeCreate: function() {},
   created: function() {},
@@ -92,8 +115,19 @@ export default {
 @use "sass:math";
 
 .app {
-  max-width: 100%;
-  min-height: inherit;
+  > div {
+    &:not(.app__modal) {
+      display: grid;
+      min-height: 100vh;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 0px 0px;
+      grid-template-areas:
+        "."
+        "."
+        ".";
+    }
+  }
 
   &__contents {
     margin: 0 auto;
@@ -103,5 +137,36 @@ export default {
       padding: clamp(1.2rem, percentage(math.div(32, 1024)), 4rem);
     }
   }
+
+  &__modal {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    [role="presentation"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#000, .72);
+      backdrop-filter: blur(.4rem);
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(#000, 0);
+    }
+  }
+}
+
+.modal-enter-active, .modal-leave-active {
+  will-change: opacity;
+  transition: opacity .5s cubic-bezier(.215, .61, .355, 1);
+}
+
+.modal-enter, .modal-leave-to {
+  opacity: 0;
 }
 </style>
