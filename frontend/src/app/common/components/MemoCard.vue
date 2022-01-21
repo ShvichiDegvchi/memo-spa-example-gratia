@@ -3,7 +3,7 @@
 <template>
   <a
     v-ripple
-    href="/"
+    :href="$props.href ? $props.href : '/'"
     class="memo-standalone"
     rel="bookmark"
   >
@@ -13,12 +13,15 @@
       <h2 v-text="$props.heading" />
     </header>
     <div class="memo-standalone__meta">
-      <time :datetime="$props.datetime" v-text="$props.datetime" />
+      <time :datetime="$dayjs($props.datetime).format()" v-text="$dayjs($props.datetime).format(`YYYY/MM/DD HH:mm:ss`)" />
     </div>
     <div class="memo-standalone__context">
       <p v-html="$props.context" />
     </div>
-    <div class="memo-standalone__bookmark">
+    <div
+      v-if="$props.bookmark"
+      class="memo-standalone__bookmark"
+    >
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#ee4e22" aria-hidden="true">
         <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
       </svg>
@@ -33,6 +36,14 @@ export default {
   components: {},
   filter: {},
   props: {
+    'bookmark': {
+      type: Boolean,
+      default: false,
+    },
+    'href': {
+      type: String,
+      default: null,
+    },
     'heading': {
       type: String,
       default: '見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し',
@@ -78,6 +89,8 @@ export default {
   border-radius: .4rem;
   box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
   touch-action: manipulation;
+
+  &:only-child { height: 100%; }
 
   &__header {
     h2 {

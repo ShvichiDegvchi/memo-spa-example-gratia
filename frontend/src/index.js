@@ -28,6 +28,11 @@ Vue.use(VueScrollTo, {
   y: true,
 });
 
+// https://www.npmjs.com/package/dayjs
+import dayjs from 'dayjs';
+dayjs.locale('ja');
+Vue.prototype.$dayjs = dayjs;
+
 // https://www.npmjs.com/package/vue-mq
 import VueMq from 'vue-mq';
 Vue.use(VueMq, {

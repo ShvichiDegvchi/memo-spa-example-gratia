@@ -1,9 +1,11 @@
 import App from './App';
 import AppHeader from './AppHeader';
-import MemoStandalone from './MemoStandalone';
+import MemoCard from './MemoCard';
+import MemoList from './MemoList';
 
 export default {
   App,
   AppHeader,
-  MemoStandalone,
+  MemoCard,
+  MemoList,
 };
