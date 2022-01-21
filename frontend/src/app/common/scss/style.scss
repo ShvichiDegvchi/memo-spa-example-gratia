@@ -1,0 +1,98 @@
+@use "sass:math";
+
+:root {
+  --higashiyama-black: #000a02;
+  --higashiyama-bordeaux: #730000;
+
+  font-family: kokuryu, sans-serif;
+  line-height: 2;
+
+  @media (min-width: 641px) {
+    font-size: .625rem; // 10px相当
+  }
+
+  @media (max-width: 640px) and (min-width: 321px) {
+    font-size: calc(.625rem + ((1vw - 3.21px) * 3.1348)); // 640px幅 20px → 321px幅 10px 相当
+  }
+
+  @media (max-width: 320px) {
+    font-size: .625rem; // 10px相当
+  }
+}
+
+html {
+  font-display: optional;
+  font-feature-settings: "palt";
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%
+}
+
+body {
+  color: var(--higashiyama-black);
+  line-height: inherit;
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  @media (min-width: 641px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  font-style: normal;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -moz-touch-callout: none;
+  -ms-touch-callout: none;
+  -webkit-user-drag: none;
+  aspect-ratio: attr(width) / attr(height);
+}
+
+a {
+  &:link {
+    cursor: pointer;
+
+    &[href^="tel"] {
+      @media screen and (hover: hover) {
+        color: currentColor;
+        text-decoration: none;
+        pointer-events: none;
+      }
+
+      @media screen and (hover: none) and (pointer: coarse) {
+        pointer-events: auto;
+      }
+    }
+  }
+
+  /*
+  &:visited {}
+  &:hover {}
+  */
+}

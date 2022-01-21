@@ -1,0 +1,5 @@
+also = "dev"
+engine-strict = true
+heading = "Shvichi Degvchi"
+progress = false
+save-exact = true

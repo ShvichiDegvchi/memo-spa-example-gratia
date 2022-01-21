@@ -1,0 +1,205 @@
+{
+  "name": "memo-app-employment-screening",
+  "version": "1.0.0",
+  "description": "メモアプリ作成（フロントエンドエンジニア選考試験）",
+  "homepage": "",
+  "private": true,
+  "main": "./src/index.js",
+  "engines": {
+    "node": "14.18.2",
+    "npm": "6.14.15"
+  },
+  "_id": "npm@6.14.15",
+  "_npmVersion": "6.14.15",
+  "_nodeVersion": "14.18.2",
+  "browserslist": [
+    "edge 97",
+    "chrome 97",
+    "ios_saf 15",
+    "safari 15",
+    "firefox 97"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": 3
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint-config-google"
+    ],
+    "plugins": [
+      "vue"
+    ],
+    "rules": {
+      "generator-star-spacing": "off",
+      "max-len": "off"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "grid": true,
+        "flexbox": "no-2009"
+      },
+      "css-mqpacker": {
+        "sort": true
+      },
+      "postcss-mq-last": {},
+      "postcss-sorting": {},
+      "postcss-flexbugs-fixes": {},
+      "postcss-discard-comments": {},
+      "postcss-percentage": {
+        "precision": 3
+      }
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-recommended-scss",
+    "plugins": [],
+    "rules": {
+      "no-descending-specificity": null,
+      "selector-pseudo-element-no-unknown": [
+        true,
+        {
+          "ignorePseudoElements": [
+            "v-deep"
+          ]
+        }
+      ]
+    },
+    "defaultSeverity": "warning"
+  },
+  "scripts": {
+    "🚀🚀 環境構築コマンド": "",
+    "🚀 Vuetify の Style を消去": "",
+    "init:vuetify": "node vuetify.style.remover.js",
+    "🚀 vuetify の Node-Sass のエラーが出ないように DartSass へ変換": "",
+    "init:dartSass": "npx sass-migrator division ./node_modules/vuetify/src/**/*.sass && npx sass-migrator division ./node_modules/vuetify/src/**/*.scss && npx sass-migrator division ./node_modules/vuetify/src/**/**/*.sass && npx sass-migrator division ./node_modules/vuetify/src/**/**/*.scss",
+    "🚀 初回環境構築時のコマンド": "",
+    "init": "npm ci && run-s init:*",
+    "🚀 Webpack から `./dist/docs/common/**/*.{css, js}` を出力": "",
+    "build:wp": "webpack --config webpack.prod.js",
+    "🚀 Pug から `./dist/docs/__template/**/*.html` を出力": "",
+    "build:pug": "pug src/pug --hierarchy -o dist -b src/pug -P --doctype html",
+    "🚀 Pug から出力される不要な html ファイルを消去": "",
+    "build:clean": "rimraf 'dist/includes/**/*.html'",
+    "🚀 html を整形": "",
+    "build:format": "prettier --write 'dist/docs/*.html'",
+    "🚀 html を圧縮": "",
+    "build:htmlminify": "html-minifier --file-ext html --input-dir dist/docs/ --output-dir dist/docs/ -c html-minifier-config.js",
+    "🚀 `./dist/` 配下の空のディレクトリを消去": "",
+    "build:empty": "delete-empty dist",
+    "🚀 ↑の build:* コマンドを直列で実行": "",
+    "build": "run-s build:*",
+    "🚀 起動時も Pug から `./dist/docs/__template/**/*.html` を出力": "",
+    "start:pug": "pug src/pug --hierarchy -o dist -b src/pug -P --doctype html -w",
+    "🚀 Webpack を起動": "",
+    "start:webpack": "webpack --watch --config webpack.dev.js",
+    "🚀 ↑の start:* コマンドを並列で実行": "",
+    "start": "run-p start:*",
+    "🚀 ブラウザーシンクを起動": "",
+    "bs": "browser-sync start --config bs.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.compolex.com/root/109.teaser.higashiyama.git"
+  },
+  "author": "KINOTROPE",
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Shuichi Deguchi",
+      "email": "s.deguchi@kinotrope.co.jp"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "Shuichi Deguchi",
+      "email": "s.deguchi@kinotrope.co.jp"
+    },
+    {
+      "name": "Chao Wang",
+      "email": "c.wang@kinotrope.co.jp"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.16.10",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/preset-env": "^7.16.11",
+    "@vue/compiler-sfc": "^3.2.27",
+    "autoprefixer": "^10.4.2",
+    "axios": "^0.24.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
+    "babel-preset-vue": "^2.0.2",
+    "browser-sync": "^2.27.7",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "compression-webpack-plugin": "^9.2.0",
+    "core-js": "^3.20.3",
+    "css-loader": "^6.5.1",
+    "css-mqpacker": "^7.0.0",
+    "delete-empty": "^3.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-vue": "^7.20.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "fibers": "^5.0.0",
+    "html-minifier": "^4.0.0",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "postcss": "^8.4.5",
+    "postcss-discard-comments": "^5.0.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-load-config": "^3.1.1",
+    "postcss-loader": "^6.2.1",
+    "postcss-mq-last": "^1.0.2",
+    "postcss-percentage": "0.0.0",
+    "postcss-sorting": "^7.0.1",
+    "prettier": "^2.5.1",
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^3.0.2",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
+    "sass-migrator": "^1.5.4",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended-scss": "^4.3.0",
+    "stylelint-scss": "^3.21.0",
+    "stylelint-webpack-plugin": "^3.1.1",
+    "terser-webpack-plugin": "^5.3.0",
+    "the-new-css-reset": "^1.4.5",
+    "tinify": "^1.6.1",
+    "vue": "^2.6.14",
+    "vue-axios": "^3.4.0",
+    "vue-clickaway": "^2.2.2",
+    "vue-fragment": "^1.5.2",
+    "vue-loader": "^15.9.8",
+    "vue-mq": "^1.0.1",
+    "vue-router": "^3.5.3",
+    "vue-scrollto": "^2.20.0",
+    "vue-style-loader": "^4.1.3",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify": "^2.6.2",
+    "vuex": "^3.6.2",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {}
+}
