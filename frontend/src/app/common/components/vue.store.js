@@ -8,7 +8,7 @@ export default new Vuex.Store({
    * 変数を定義する場所
    */
   state: {
-    appModal: false, // 初期値（Initial Value）は false とする
+    appModal: true, // 初期値（Initial Value）は false とする
     createButton: true, // 初期値（Initial Value）は true とする
   },
   /**

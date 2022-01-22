@@ -158,15 +158,34 @@ export default {
       touch-action: manipulation;
       -webkit-tap-highlight-color: rgba(#000, 0);
     }
+
+    > div {
+      &:not([role="presentation"]) {
+        display: grid;
+        place-items: center;
+        padding: clamp(1.2rem, percentage(math.div(32, 1024)), 4rem);
+        height: 100%;
+      }
+    }
   }
 }
 
 .modal-enter-active, .modal-leave-active {
   will-change: opacity;
   transition: opacity .5s cubic-bezier(.215, .61, .355, 1);
+
+  ::v-deep .create-memo {
+    will-change: opacity, transform;
+    transition: opacity .5s cubic-bezier(.215, .61, .355, 1), transform .5s cubic-bezier(.175, .885, .32, 1.275);
+  }
 }
 
 .modal-enter, .modal-leave-to {
   opacity: 0;
+
+  ::v-deep .create-memo {
+    opacity: 0;
+    transform: translateY(25%);
+  }
 }
 </style>
