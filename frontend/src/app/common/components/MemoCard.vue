@@ -3,9 +3,9 @@
 <template>
   <a
     v-ripple
-    :href="$props.href ? $props.href : '/'"
     class="memo-standalone"
     rel="bookmark"
+    @click="$router.push('memo')"
   >
     <header
       class="memo-standalone__header"
@@ -89,6 +89,7 @@ export default {
   border-radius: .4rem;
   box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
   touch-action: manipulation;
+  cursor: pointer;
   -webkit-tap-highlight-color: rgba(#000, 0);
   -webkit-touch-callout: none;
 

@@ -57,8 +57,8 @@ button {
   border-radius: 100%;
   background-color: #232f3e;
   color: #fff;
-  width: 6rem;
-  height: 6rem;
+  width: 5.6rem;
+  height: 5.6rem;
   touch-action: manipulation;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(#000, 0);

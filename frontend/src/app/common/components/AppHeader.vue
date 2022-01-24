@@ -12,7 +12,7 @@
         <Logo :name="$props.name" />
       </div>
       <div
-        v-if="_createButton"
+        v-if="$route.path !== '/memo'"
         class="app-header__btn"
       >
         <Button />
@@ -42,11 +42,7 @@ export default {
   data: function() {
     return {};
   },
-  computed: {
-    _createButton: function() {
-      return this.$store.getters.createButton;
-    },
-  },
+  computed: {},
   watch: {},
   beforeCreate: function() {},
   created: function() {},

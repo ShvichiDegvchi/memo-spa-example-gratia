@@ -1,10 +1,7 @@
 <docs></docs>
 
 <template>
-  <div
-    v-scroll-lock="_appModal"
-    class="entity-memo"
-  >
+  <div class="entity-memo">
     <header>
       <input
         v-if="$data.focused.input"
@@ -40,6 +37,13 @@
       </div>
     </div>
     <footer>
+      <button
+        v-ripple
+        type="button"
+      >
+        <span>Remove</span>
+      </button>
+
       <button
         v-ripple
         type="button"
@@ -96,7 +100,8 @@ export default {
 .entity-memo {
   overflow: hidden;
   position: relative;
-  width: min(100%, 52rem);
+  margin: 0 auto;
+  width: min(100%, 76.8rem);
   height: 100%;
   border-radius: .4rem;
   background-color: #fff;
@@ -183,6 +188,10 @@ export default {
         background-color: #ee4e22;
         color: #fff;
         cursor: pointer;
+      }
+
+      + button {
+        margin-left: .8rem;
       }
     }
   }

@@ -32,23 +32,6 @@
         </div>
       </div>
     </transition>
-
-    <transition name="modal">
-      <div
-        v-if="_appModal"
-        :aria-modal="_appModal ? _appModal : false"
-        class="app__modal--entity-memo"
-      >
-        <div
-          v-ripple
-          @click="$store.dispatch('appModal', false)"
-          role="presentation"
-        />
-        <div>
-          <slot name="entity-memo" />
-        </div>
-      </div>
-    </transition>
   </div>
 </template>
 
@@ -141,7 +124,7 @@ export default {
 
 .app {
   > div {
-    &:not(.app__modal--create-memo):not(.app__modal--entity-memo) {
+    &:not(.app__modal--create-memo) {
       display: grid;
       min-height: 100vh;
       grid-template-columns: 1fr;
@@ -163,8 +146,7 @@ export default {
     }
   }
 
-  &__modal--create-memo,
-  &__modal--entity-memo {
+  &__modal--create-memo {
     overflow: hidden;
     position: fixed;
     top: 0;
