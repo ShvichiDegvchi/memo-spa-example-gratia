@@ -31,10 +31,10 @@ export default new Vuex.Store({
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
       commit('appModal', newVal);
     },
-    memos({commit}, arr) {
+    memos({commit}, obj) {
       // mutationsを叩く。
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
-      commit('memos', arr);
+      commit('memos', obj);
     },
   },
   /**

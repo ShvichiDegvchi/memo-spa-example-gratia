@@ -12,12 +12,14 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      strict: true,
     },
     {
-      path: '/memo/:id',
-      name: 'memo',
+      path: '/memos/:id',
+      name: 'memos',
       component: Memo,
       props: true,
+      strict: true,
     },
   ],
 });

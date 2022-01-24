@@ -1,11 +1,11 @@
 <docs></docs>
 
 <template>
-  <a
+  <router-link
     v-ripple
+    :to="`/memos/${$props.id}`"
     class="memo-standalone"
     rel="bookmark"
-    @click="$router.push('memo')"
   >
     <header
       class="memo-standalone__header"
@@ -26,7 +26,7 @@
         <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
       </svg>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -36,13 +36,13 @@ export default {
   components: {},
   filter: {},
   props: {
+    'id': {
+      type: String,
+      required: true,
+    },
     'bookmark': {
       type: Boolean,
       default: false,
-    },
-    'href': {
-      type: String,
-      default: null,
     },
     'heading': {
       type: String,

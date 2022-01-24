@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
+
 export default {
   name: '',
   title: '',
@@ -93,7 +95,8 @@ export default {
   created: function() {},
   beforeMount: function() {},
   mounted: function() {
-    this.$nextTick(function() {});
+    this.$nextTick(() => {
+    });
   },
   beforeUpdate: function() {},
   updated: function() {},
@@ -107,7 +110,7 @@ export default {
   methods: {
     createMemo: function() {
       this.$store.dispatch('memos', {
-        id: null,
+        id: `memo-${this._uid}`,
         heading: this.$data.heading,
         context: this.$data.context,
         datetime: this.$dayjs().format(),

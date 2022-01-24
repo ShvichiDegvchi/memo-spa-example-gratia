@@ -2,6 +2,8 @@
 
 <template>
   <div class="memo">
+    <p style="font-size: 3rem;">$route.params.id = {{ $route.params.id }}</p>
+    <p style="font-size: 3rem;">$data.id = {{ $props.id }}</p>
     <div class="memo__return-to-toppage">
       <router-link v-ripple to="/">
         <i aria-hidden="true">
@@ -31,12 +33,22 @@ export default {
     EntityMemo,
   },
   filter: {},
-  props: {},
+  props: {
+    'id': {
+      type: String,
+      default: null,
+    },
+  },
   data: function() {
     return {};
   },
   computed: {},
-  watch: {},
+  watch: {
+    $route(to, from) {
+      console.log(to);
+      console.log(from);
+    },
+  },
   beforeCreate: function() {},
   created: function() {},
   beforeMount: function() {},

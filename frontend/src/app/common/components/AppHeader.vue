@@ -12,7 +12,7 @@
         <Logo :name="$props.name" />
       </div>
       <div
-        v-if="$route.path !== '/memo'"
+        v-if="$route.path.indexOf('memos') === -1"
         class="app-header__btn"
       >
         <Button />

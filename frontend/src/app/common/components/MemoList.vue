@@ -14,8 +14,8 @@
         role="listitem"
       >
         <MemoCard
+          :id="item.id"
           :bookmark="item.bookmark"
-          :href="item.href"
           :heading="item.heading"
           :datetime="item.datetime"
           :context="item.context"
@@ -50,47 +50,7 @@ export default {
     },
   },
   data: function() {
-    return {
-      items: [
-        {
-          bookmark: true,
-          href: '/google/',
-          heading: '見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し',
-          datetime: '2022-01-20T19:00:00+09:00',
-          context: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-        },
-        {
-          href: '/google/',
-          heading: 'あああ',
-          datetime: '2022',
-          context: 'ああああああああああ',
-        },
-        {
-          href: '/google/',
-          heading: 'あああ',
-          datetime: '2022',
-          context: 'ああああああああああ',
-        },
-        {
-          href: '/google/',
-          heading: 'あああ',
-          datetime: '2022',
-          context: 'ああああああああああ',
-        },
-        {
-          href: '/google/',
-          heading: 'あああ',
-          datetime: '2022',
-          context: 'ああああああああああ',
-        },
-        {
-          href: '/google/',
-          heading: 'あああ',
-          datetime: '2022',
-          context: 'ああああああああああ',
-        },
-      ],
-    };
+    return {};
   },
   computed: {
     _memos: function() {
@@ -102,9 +62,7 @@ export default {
   created: function() {},
   beforeMount: function() {},
   mounted: function() {
-    this.$nextTick(function() {
-      console.log(this._memos);
-    });
+    this.$nextTick(function() {});
   },
   beforeUpdate: function() {},
   updated: function() {},
