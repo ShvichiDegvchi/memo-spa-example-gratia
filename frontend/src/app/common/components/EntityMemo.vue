@@ -39,6 +39,7 @@
     <footer>
       <button
         v-ripple
+        class="entity-memo__btn--remove"
         type="button"
       >
         <span>Remove</span>
@@ -47,7 +48,7 @@
       <button
         v-ripple
         type="button"
-        disabled
+        class="entity-memo__btn--save"
       >
         <span>Save</span>
       </button>
@@ -178,15 +179,25 @@ export default {
       touch-action: manipulation;
       -webkit-tap-highlight-color: rgba(#000, 0);
 
-      &:disabled {
-        background-color: lighten(#ee4e22, 34%);
-        color: lighten(#ee4e22, 40%);
+      &.entity-memo__btn--remove {
+        background-color: #424242;
+        color: #fff;
+      }
+
+      &.entity-memo__btn--save {
+        &:disabled {
+          background-color: lighten(#ee4e22, 34%);
+          color: lighten(#ee4e22, 40%);
+        }
+
+        &:not([disabled]) {
+          background-color: #ee4e22;
+          color: #fff;
+        }
       }
 
       &:not([disabled]) {
         box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
-        background-color: #ee4e22;
-        color: #fff;
         cursor: pointer;
       }
 
