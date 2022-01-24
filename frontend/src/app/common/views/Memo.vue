@@ -3,7 +3,7 @@
 <template>
   <div class="memo">
     <p style="font-size: 3rem;">$route.params.id = {{ $route.params.id }}</p>
-    <p style="font-size: 3rem;">$data.id = {{ $props.id }}</p>
+    <p style="font-size: 3rem;">$props.id = {{ $props.id }}</p>
     <div class="memo__return-to-toppage">
       <router-link v-ripple to="/">
         <i aria-hidden="true">
@@ -78,8 +78,8 @@ export default {
     a {
       display: inline-flex;
       align-items: center;
-      gap: 0 .8rem;
-      padding: 0 1rem 0 1.2rem;
+      gap: 0 .4rem;
+      padding: 0 1.6rem 0 1rem;
       border-radius: 10rem;
       background-color: #f7a419;
       box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
@@ -93,6 +93,10 @@ export default {
           height: 2.4rem;
           fill: currentColor;
         }
+      }
+
+      span {
+        font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
       }
     }
   }
