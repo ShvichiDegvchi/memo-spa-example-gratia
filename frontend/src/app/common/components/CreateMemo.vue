@@ -1,7 +1,10 @@
 <docs></docs>
 
 <template>
-  <div class="create-memo">
+  <div
+    v-scroll-lock="_appModal"
+    class="create-memo"
+  >
     <header>
       <h3>
         <i aria-hidden="hidden">
@@ -37,7 +40,7 @@
           <span>Notes</span>
           <textarea
             v-model.trim="context"
-            :rows="$mq !== 's' ? 14 : 5"
+            :rows="$mq !== 's' ? 13 : 4"
             @focus.once="$data.focused = true"
             placeholder="本文を入力してください。"
           />
@@ -72,6 +75,9 @@ export default {
     };
   },
   computed: {
+    _appModal: function() {
+      return this.$store.getters.appModal;
+    },
     _invalid: function() {
       if (this.$data.heading === '' || this.$data.context === '') {
         return true;
@@ -102,6 +108,7 @@ export default {
 @use "sass:math";
 
 .create-memo {
+  overflow: hidden;
   position: relative;
   width: min(100%, 52rem);
   height: 100%;

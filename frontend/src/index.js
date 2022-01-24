@@ -67,6 +67,9 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 
+// https://www.npmjs.com/package/v-scroll-lock
+import VScrollLock from 'v-scroll-lock';
+Vue.use(VScrollLock);
 
 // https://jp.vuejs.org/v2/api/index.html#productionTip
 Vue.config.productionTip = true;

@@ -18,7 +18,7 @@
       <div
         v-if="_appModal"
         :aria-modal="_appModal ? _appModal : false"
-        class="app__modal"
+        class="app__modal--create-memo"
       >
         <div
           v-ripple
@@ -27,6 +27,23 @@
         />
         <div>
           <slot name="create-memo" />
+        </div>
+      </div>
+    </transition>
+
+    <transition name="modal">
+      <div
+        v-if="_appModal"
+        :aria-modal="_appModal ? _appModal : false"
+        class="app__modal--entity-memo"
+      >
+        <div
+          v-ripple
+          @click="$store.dispatch('appModal', false)"
+          role="presentation"
+        />
+        <div>
+          <slot name="entity-memo" />
         </div>
       </div>
     </transition>
@@ -116,7 +133,7 @@ export default {
 
 .app {
   > div {
-    &:not(.app__modal) {
+    &:not(.app__modal--create-memo):not(.app__modal--entity-memo) {
       display: grid;
       min-height: 100vh;
       grid-template-columns: 1fr;
@@ -138,7 +155,8 @@ export default {
     }
   }
 
-  &__modal {
+  &__modal--create-memo,
+  &__modal--entity-memo {
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -161,6 +179,7 @@ export default {
 
     > div {
       &:not([role="presentation"]) {
+        overflow-y: auto;
         display: grid;
         place-items: center;
         padding: clamp(1.2rem, percentage(math.div(32, 1024)), 4rem);
@@ -174,7 +193,8 @@ export default {
   will-change: opacity;
   transition: opacity .5s cubic-bezier(.215, .61, .355, 1);
 
-  ::v-deep .create-memo {
+  ::v-deep .create-memo,
+  ::v-deep .entity-memo {
     will-change: opacity, transform;
     transition: opacity .5s cubic-bezier(.215, .61, .355, 1), transform .5s cubic-bezier(.175, .885, .32, 1.275);
   }
@@ -183,7 +203,8 @@ export default {
 .modal-enter, .modal-leave-to {
   opacity: 0;
 
-  ::v-deep .create-memo {
+  ::v-deep .create-memo,
+  ::v-deep .entity-memo {
     opacity: 0;
     transform: translateY(25%);
   }
