@@ -46,15 +46,15 @@ export default {
     },
     'heading': {
       type: String,
-      default: '見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し見出し',
+      default: null,
     },
     'datetime': {
       type: String,
-      default: '2022-01-20T19:00:00+09:00',
+      default: null,
     },
     'context': {
       type: String,
-      default: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+      default: null,
     },
   },
   data: function() {

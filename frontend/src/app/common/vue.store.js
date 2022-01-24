@@ -45,7 +45,7 @@ export default new Vuex.Store({
       state.appModal = payload;
     },
     memos(state, payload) {
-      state.memos = payload;
+      state.memos.push(payload);
     },
   },
 });

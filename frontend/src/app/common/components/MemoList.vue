@@ -9,7 +9,7 @@
       role="list"
     >
       <div
-        v-for="(item, i) in _memos"
+        v-for="(item, i) in _memos.slice().reverse()"
         :key="i"
         role="listitem"
       >
@@ -102,7 +102,9 @@ export default {
   created: function() {},
   beforeMount: function() {},
   mounted: function() {
-    this.$nextTick(function() {});
+    this.$nextTick(function() {
+      console.log(this._memos);
+    });
   },
   beforeUpdate: function() {},
   updated: function() {},

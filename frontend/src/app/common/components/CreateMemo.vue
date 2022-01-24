@@ -79,6 +79,9 @@ export default {
     _appModal: function() {
       return this.$store.getters.appModal;
     },
+    _memos: function() {
+      return this.$store.getters.memos;
+    },
     _invalid: function() {
       if (this.$data.heading === '' || this.$data.context === '') {
         return true;
@@ -103,15 +106,13 @@ export default {
   },
   methods: {
     createMemo: function() {
-      this.$store.dispatch('memos', [
-        {
-          id: null,
-          heading: this.$data.heading,
-          context: this.$data.context,
-          datetime: this.$dayjs().format(),
-          bookmark: null,
-        }
-      ]);
+      this.$store.dispatch('memos', {
+        id: null,
+        heading: this.$data.heading,
+        context: this.$data.context,
+        datetime: this.$dayjs().format(),
+        bookmark: null,
+      });
 
       this.$store.dispatch('appModal', false);
     },
