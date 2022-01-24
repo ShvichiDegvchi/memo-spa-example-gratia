@@ -9,13 +9,9 @@ import './app/common/scss/style.scss';
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import components from './app/common/components/vue.components.js';
-import route from './app/common/components/vue.route.js';
-import store from './app/common/components/vue.store.js';
-
-// https://router.vuejs.org/ja/
-import Router from 'vue-router';
-Vue.use(Router);
+import components from './app/common/vue.components.js';
+import router from './app/common/vue.route.js';
+import store from './app/common/vue.store.js';
 
 // https://vue-scrollto.netlify.app/
 import VueScrollTo from 'vue-scrollto';
@@ -77,7 +73,7 @@ Vue.config.productionTip = true;
 /* eslint-disable no-new */
 new Vue({
   components,
-  route,
+  router,
   store,
   vuetify: new Vuetify({
     theme: {

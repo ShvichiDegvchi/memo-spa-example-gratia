@@ -127,10 +127,6 @@ export default {
       gap: 3rem percentage(math.div(30, 844));
     }
 
-    @media (max-width: 640px) {
-
-    }
-
     [role="listitem"] {
       @media (min-width: 1281px) {
         width: percentage(math.div(450, 1920));

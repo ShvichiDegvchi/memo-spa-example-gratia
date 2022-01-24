@@ -3,7 +3,7 @@
 <template>
   <div class="app">
     <div>
-      <slot name="header" />
+      <AppHeader />
 
       <div class="app__contents">
         <div>
@@ -11,7 +11,9 @@
         </div>
       </div>
 
-      <slot name="footer" />
+      <AppFooter>
+        <template #author>出口修一</template>
+      </AppFooter>
     </div>
 
     <transition name="modal">
@@ -51,10 +53,16 @@
 </template>
 
 <script>
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
+
 export default {
   name: '',
   title: '',
-  components: {},
+  components: {
+    AppHeader,
+    AppFooter,
+  },
   filter: {},
   props: {
   },

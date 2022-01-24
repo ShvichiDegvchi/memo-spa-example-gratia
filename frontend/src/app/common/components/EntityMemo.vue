@@ -143,9 +143,6 @@ export default {
 
   input, textarea {
     display: inherit;
-  }
-
-  input, textarea {
     padding: 1.2rem;
     width: 100%;
     border-radius: .4rem;
