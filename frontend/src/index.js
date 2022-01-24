@@ -10,7 +10,7 @@ import './app/common/scss/style.scss';
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import components from './app/common/vue.components.js';
-import router from './app/common/vue.route.js';
+import router from './app/common/vue.router.js';
 import store from './app/common/vue.store.js';
 
 // https://vue-scrollto.netlify.app/
