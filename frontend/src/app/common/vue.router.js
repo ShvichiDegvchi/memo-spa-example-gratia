@@ -14,9 +14,10 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/memo',
+      path: '/memo/:id',
       name: 'memo',
       component: Memo,
+      props: true,
     },
   ],
 });

@@ -52,6 +52,7 @@
         v-ripple
         :disabled="_invalid"
         type="button"
+        @click="createMemo"
       >
         <span>
           <slot name="button" />
@@ -100,7 +101,21 @@ export default {
   errorCaptured(err, vm, info) {
     console.log(`【${vm}】: ${err.message}`);
   },
-  methods: {},
+  methods: {
+    createMemo: function() {
+      this.$store.dispatch('memos', [
+        {
+          id: null,
+          heading: this.$data.heading,
+          context: this.$data.context,
+          datetime: this.$dayjs().format(),
+          bookmark: null,
+        }
+      ]);
+
+      this.$store.dispatch('appModal', false);
+    },
+  },
 };
 </script>
 

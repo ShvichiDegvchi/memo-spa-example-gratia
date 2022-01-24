@@ -9,7 +9,7 @@ export default new Vuex.Store({
    */
   state: {
     appModal: false, // 初期値（Initial Value）は false とする
-    createButton: true, // 初期値（Initial Value）は true とする
+    memos: [],
   },
   /**
    * 指定した変数の値を返却するための処理群
@@ -18,8 +18,8 @@ export default new Vuex.Store({
     appModal: function(state) {
       return state.appModal;
     },
-    createButton: function(state) {
-      return state.createButton;
+    memos: function(state) {
+      return state.memos;
     },
   },
   /**
@@ -31,10 +31,10 @@ export default new Vuex.Store({
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
       commit('appModal', newVal);
     },
-    createButton({commit}, newVal) {
+    memos({commit}, arr) {
       // mutationsを叩く。
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
-      commit('createButton', newVal);
+      commit('memos', arr);
     },
   },
   /**
@@ -44,8 +44,8 @@ export default new Vuex.Store({
     appModal(state, payload) {
       state.appModal = payload;
     },
-    createButton(state, payload) {
-      state.createButton = payload;
+    memos(state, payload) {
+      state.memos = payload;
     },
   },
 });

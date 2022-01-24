@@ -161,6 +161,7 @@ export default {
 
     > div {
       padding: clamp(1.2rem, percentage(math.div(32, 1024)), 4rem);
+      height: 100%;
     }
   }
 

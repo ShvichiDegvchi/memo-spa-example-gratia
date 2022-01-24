@@ -1,24 +1,32 @@
 <docs></docs>
 
 <template>
-  <div
-    v-if="$data.items.length"
-    :class="$data.items.length === 1 ? 'memo-list--no-flex' : null"
-    class="memo-list"
-    role="list"
-  >
+  <div class="memo-list-wrapper">
     <div
-      v-for="(item, i) in $data.items"
-      :key="i"
-      role="listitem"
+      v-if="_memos.length"
+      :class="_memos.length === 1 ? 'memo-list--no-flex' : null"
+      class="memo-list"
+      role="list"
     >
-      <MemoCard
-        :bookmark="item.bookmark"
-        :href="item.href"
-        :heading="item.heading"
-        :datetime="item.datetime"
-        :context="item.context"
-      />
+      <div
+        v-for="(item, i) in _memos"
+        :key="i"
+        role="listitem"
+      >
+        <MemoCard
+          :bookmark="item.bookmark"
+          :href="item.href"
+          :heading="item.heading"
+          :datetime="item.datetime"
+          :context="item.context"
+        />
+      </div>
+    </div>
+    <div
+      v-else
+      class="empty-memo"
+    >
+      <h1>No saved notes.🤔</h1>
     </div>
   </div>
 </template>
@@ -84,7 +92,11 @@ export default {
       ],
     };
   },
-  computed: {},
+  computed: {
+    _memos: function() {
+      return this.$store.getters.memos;
+    },
+  },
   watch: {},
   beforeCreate: function() {},
   created: function() {},
@@ -108,6 +120,9 @@ export default {
 <style lang="scss" scoped>
 @use "sass:math";
 
+.memo-list-wrapper {
+  height: inherit;
+}
 .memo-list {
   &:not(.memo-list--no-flex) {
     @media (min-width: 641px) {
@@ -149,5 +164,15 @@ export default {
   }
 
   .memo-standalone { width: 100%; }
+}
+
+.empty-memo {
+  display: grid;
+  place-items: center;
+  height: inherit;
+
+  h1 {
+    font-size: 3rem;
+  }
 }
 </style>
