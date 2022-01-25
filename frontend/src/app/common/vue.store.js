@@ -53,6 +53,11 @@ export default new Vuex.Store({
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
       commit('save', arr);
     },
+    remove({commit}, arr) {
+      // mutationsを叩く。
+      // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
+      commit('remove', arr);
+    },
   },
   /**
    * 指定した変数の値を変更する処理群。"同期的に"値を変更する。
@@ -66,15 +71,22 @@ export default new Vuex.Store({
       state.memos.unshift(payload);
     },
     save(state, payload) {
-      state.memos = state.memos.map((aMemo)=>{
-        if (aMemo.id == payload.id) {
+      state.memos.map((memo) => {
+        if (memo.id === payload.id) {
           return payload;
         } else {
-          return aMemo;
+          return memo;
         }
       });
     },
     remove(state, payload) {
+      state.memos = state.memos.filter((memo) => {
+        if (memo.id !== payload.id) {
+          console.log(JSON.stringify(memo));
+          console.log(JSON.stringify(state));
+          return memo;
+        }
+      });
     },
   },
 });

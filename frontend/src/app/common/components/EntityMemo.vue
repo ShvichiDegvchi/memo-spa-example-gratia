@@ -83,6 +83,7 @@ export default {
         input: false,
         textarea: false,
       },
+      bookmark: false,
     };
   },
   computed: {
@@ -92,18 +93,7 @@ export default {
           return obj.id === this.$props.id;
         });
       },
-      set :function() {
-        /*
-        let d = this.$store.getters.memos.filter(obj => obj.id === this.$props.id)[0];
-        this.$store.dispatch(d, {
-          id: this.$props.id,
-          bookmark: this.$data.bookmark,
-          heading: this.$data.heading,
-          datetime: this.$dayjs().format(),
-          context: this.$data.context,
-        })
-        */
-      },
+      set :function() {},
     },
   },
   watch: {},
@@ -122,45 +112,28 @@ export default {
   beforeDestroy: function() {},
   destroyed: function() {},
   methods: {
-    remove: function() {
-      console.log('Remove');
-    },
     bookmarking: function() {
       console.log('bookmark');
     },
+    remove: function() {
+      console.log('Remove');
+
+      this.$store.dispatch('remove', {
+        id: this.$props.id,
+        heading: this._memos[0].heading,
+        datetime: this.$dayjs().format(),
+        context: this._memos[0].context,
+        bookmark: this.$data.bookmark,
+      });
+    },
     save: function() {
-      console.log('Save');
-
-      // this.$store.dispatch('memos', {
-      //   id: this.$props.id,
-      //   heading: this._memos[0].heading,
-      //   datetime: this.$dayjs().format(),
-      //   context: this._memos[0].context,
-      //   bookmark: null,
-      // });
-
       this.$store.dispatch('save', {
         id: this.$props.id,
         heading: this._memos[0].heading,
         datetime: this.$dayjs().format(),
         context: this._memos[0].context,
-        bookmark: null,
+        bookmark: this.$data.bookmark,
       });
-
-      // this.$store.dispatch('appModal', true)
-
-      /*
-      this.$store.getters.memos.find(obj => obj.id === this.$props.id)
-      .heading = this.$data.heading;
-      */
-/*
-      let d = this.$store.getters.memos.filter((obj) => {
-        return obj.id === this.$props.id;
-      });
-
-      d[0].heading = this.$data.heading;
-      d[0].context = this.$data.context;
-*/
     },
   },
 };
