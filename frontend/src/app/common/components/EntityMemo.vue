@@ -36,10 +36,22 @@
       </div>
     </div>
     <footer>
+      <transition name="fade">
+        <i
+          v-if="_memos[0].bookmark"
+          aria-hidden="true"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="#ee4e22" aria-hidden="true">
+            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+          </svg>
+        </i>
+      </transition>
+
       <button
         v-ripple
         class="entity-memo__btn--bookmark"
         type="button"
+        @click="bookmark"
       >
         <span>Bookmark</span>
       </button>
@@ -83,7 +95,6 @@ export default {
         input: false,
         textarea: false,
       },
-      bookmark: false,
     };
   },
   computed: {
@@ -112,12 +123,16 @@ export default {
   beforeDestroy: function() {},
   destroyed: function() {},
   methods: {
-    bookmarking: function() {
-      console.log('bookmark');
+    bookmark: function() {
+      this.$store.dispatch('save', {
+        id: this.$props.id,
+        heading: this._memos[0].heading,
+        datetime: this.$dayjs().format(),
+        context: this._memos[0].context,
+        bookmark: this._memos[0].bookmark = !this._memos[0].bookmark,
+      });
     },
     remove: function() {
-      console.log('Remove');
-
       this.$store.dispatch('remove', {
         id: this.$props.id,
         heading: this._memos[0].heading,
@@ -125,6 +140,9 @@ export default {
         context: this._memos[0].context,
         bookmark: this.$data.bookmark,
       });
+
+      // Return to Toppage
+      this.$router.push('/');
     },
     save: function() {
       this.$store.dispatch('save', {
@@ -179,6 +197,13 @@ export default {
       font-size: 2.8rem;
       font-family: kokuryu, sans-serif;
       line-height: 1.2;
+
+      &:empty {
+        min-height: 5.8rem;
+        border: .1rem solid #ddd;
+        border-radius: .4rem;
+        background-color: #f5f5f5;
+      }
     }
   }
 
@@ -188,6 +213,13 @@ export default {
 
     p {
       font-family: kokuryu, sans-serif;
+
+      &:empty {
+        min-height: 5.8rem;
+        border: .1rem solid #ddd;
+        border-radius: .4rem;
+        background-color: #f5f5f5;
+      }
     }
   }
 
@@ -216,7 +248,20 @@ export default {
     border-top: .1rem solid #ddd;
     background-color: #fff;
 
+    i {
+      flex-grow: 1;
+      flex-basis: auto;
+
+      svg {
+        display: block;
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+
     button {
+      flex-shrink: 0;
+      flex-basis: auto;
       padding: 0 1.6rem;
 
       border-radius: .3rem;

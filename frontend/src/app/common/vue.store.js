@@ -21,6 +21,12 @@ export default new Vuex.Store({
       heading: 'これも Vuex に直で入れてます。動作検証用。',
       context: '内容内容内容内容内容 フレームワークは Vue.js (V2) + Vue-Router + Vuex です。モジュールバンドラーは Webpack (V5) です。',
       datetime: '2022',
+    }, {
+      id: 'memo-03',
+      bookmark: false,
+      heading: '動作検証用。',
+      context: '内容内容内容内容内容',
+      datetime: '2022',
     }],
   },
   /**
@@ -43,20 +49,20 @@ export default new Vuex.Store({
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
       commit('appModal', newVal);
     },
-    memos({commit}, obj) {
+    memos({commit}, newVal) {
       // mutationsを叩く。
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
-      commit('memos', obj);
+      commit('memos', newVal);
     },
-    save({commit}, arr) {
+    remove({commit}, newVal) {
       // mutationsを叩く。
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
-      commit('save', arr);
+      commit('remove', newVal);
     },
-    remove({commit}, arr) {
+    save({commit}, newVal) {
       // mutationsを叩く。
       // 「commit」という関数は、mutationsを叩くためのVuexのお作法です。
-      commit('remove', arr);
+      commit('save', newVal);
     },
   },
   /**
@@ -70,20 +76,18 @@ export default new Vuex.Store({
       // 末尾から挿入でなくて、先頭から挿入する。
       state.memos.unshift(payload);
     },
+    remove(state, payload) {
+      const result = state.memos.filter((memo) => {
+        return memo.id !== payload.id;
+      });
+
+      state.memos = result;
+    },
     save(state, payload) {
       state.memos.map((memo) => {
         if (memo.id === payload.id) {
           return payload;
         } else {
-          return memo;
-        }
-      });
-    },
-    remove(state, payload) {
-      state.memos = state.memos.filter((memo) => {
-        if (memo.id !== payload.id) {
-          console.log(JSON.stringify(memo));
-          console.log(JSON.stringify(state));
           return memo;
         }
       });
