@@ -84,13 +84,15 @@ export default new Vuex.Store({
       state.memos = result;
     },
     save(state, payload) {
-      state.memos.map((memo) => {
+      const result = state.memos.map((memo) => {
         if (memo.id === payload.id) {
           return payload;
         } else {
           return memo;
         }
       });
+
+      state.memos = result;
     },
   },
 });

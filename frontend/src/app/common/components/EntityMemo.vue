@@ -49,6 +49,7 @@
 
       <button
         v-ripple
+        :class="_memos[0].bookmark ? 'this-invert' : null"
         class="entity-memo__btn--bookmark"
         type="button"
         @click="bookmark"
@@ -267,9 +268,21 @@ export default {
       border-radius: .3rem;
       touch-action: manipulation;
       -webkit-tap-highlight-color: rgba(#000, 0);
+      transition: background-color .5s cubic-bezier(.165, .84, .44, 1), color .5s cubic-bezier(.165, .84, .44, 1);
 
       @media (max-width: 640px) {
         font-size: 1.2rem;
+      }
+
+
+      &.entity-memo__btn--bookmark {
+        background-color: #ee4e22;
+        color: #fff;
+
+        &.this-invert {
+          background-color: #fff;
+          color: #ee4e22;
+        }
       }
 
       &.entity-memo__btn--remove {
@@ -279,12 +292,12 @@ export default {
 
       &.entity-memo__btn--save {
         &:disabled {
-          background-color: lighten(#ee4e22, 34%);
-          color: lighten(#ee4e22, 40%);
+          background-color: lighten(#00a171, 34%);
+          color: lighten(#00a171, 40%);
         }
 
         &:not([disabled]) {
-          background-color: #ee4e22;
+          background-color: #00a171;
           color: #fff;
         }
       }
