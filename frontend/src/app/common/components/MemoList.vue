@@ -56,28 +56,18 @@ export default {
   },
   computed: {
     _memos: function() {
-      // bookmark: true のものだけの配列準備
-      const bookmarks = this.$store.getters.memos.filter((memo) => {
-        return memo.bookmark;
-      });
-
-      // ↑ の bookmarks を降順で並び替えた配列を準備
-      const bookmarksSort = bookmarks.sort(function(a, b) {
+      // bookmark: true のものだけで日付降順に並び替えた配列を準備
+      const bookmarks = this.$store.getters.memos.filter((memo) => memo.bookmark).sort(function(a, b) {
         return (a.datetime > b.datetime) ? -1 : 1;
       });
 
-      // bookmark: false のものだけの配列準備
-      const noBookmarks = this.$store.getters.memos.filter((memo) => {
-        return !memo.bookmark;
-      });
-
-      // ↑ の noBookmarks を降順で並び替えた配列を準備
-      const noBookmarksSort = noBookmarks.sort(function(a, b) {
+      // bookmark: false のものだけで日付降順に並び替えた配列を準備
+      const noBookmarks = this.$store.getters.memos.filter((memo) => !memo.bookmark).sort(function(a, b) {
         return (a.datetime > b.datetime) ? -1 : 1;
       });
 
-      // スプレッド構文で Bookmark が先頭側に来る配列を return する。
-      return [...bookmarksSort, ...noBookmarksSort];
+      // スプレッド構文で bookmark が先頭側に来る配列を return する。
+      return [...bookmarks, ...noBookmarks];
     },
   },
   watch: {},
