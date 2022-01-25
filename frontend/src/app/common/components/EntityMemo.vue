@@ -5,14 +5,13 @@
     <header>
       <input
         v-if="$data.focused.input"
-        v-model.trim="$data.heading"
+        v-model.trim="_memos[0].heading"
         @blur="$data.focused.input = !$data.focused.input"
         type="text"
-        placeholder="見出しを入力してください。"
       >
       <h1
         v-if="!$data.focused.input"
-        v-html="$data.heading"
+        v-html="_memos[0].heading"
         @focus="$data.focused.input = !$data.focused.input"
         tabindex="0"
       />
@@ -21,7 +20,7 @@
       <div class="entity-memo__context">
         <textarea
           v-if="$data.focused.textarea"
-          v-model.trim="$data.context"
+          v-model.trim="_memos[0].context"
           :rows="$mq !== 's' ? 14 : 5"
           @blur="$data.focused.textarea = !$data.focused.textarea"
         />
@@ -29,7 +28,7 @@
           v-if="!$data.focused.textarea"
         >
           <p
-            v-html="$data.context"
+            v-html="_memos[0].context"
             @focus="$data.focused.textarea = !$data.focused.textarea"
             tabindex="0"
           />
@@ -39,8 +38,17 @@
     <footer>
       <button
         v-ripple
+        class="entity-memo__btn--bookmark"
+        type="button"
+      >
+        <span>Bookmark</span>
+      </button>
+
+      <button
+        v-ripple
         class="entity-memo__btn--remove"
         type="button"
+        @click="remove"
       >
         <span>Remove</span>
       </button>
@@ -49,6 +57,7 @@
         v-ripple
         type="button"
         class="entity-memo__btn--save"
+        @click="save"
       >
         <span>Save</span>
       </button>
@@ -62,20 +71,39 @@ export default {
   title: '',
   components: {},
   filter: {},
-  props: {},
+  props: {
+    'id': {
+      type: String,
+      required: true,
+    },
+  },
   data: function() {
     return {
       focused: {
         input: false,
         textarea: false,
       },
-      heading: '見出し見出し',
-      context: '本文本文',
     };
   },
   computed: {
-    _appModal: function() {
-      return this.$store.getters.appModal;
+    _memos: {
+      get: function() {
+        return this.$store.getters.memos.filter((obj) => {
+          return obj.id === this.$props.id;
+        });
+      },
+      set :function() {
+        /*
+        let d = this.$store.getters.memos.filter(obj => obj.id === this.$props.id)[0];
+        this.$store.dispatch(d, {
+          id: this.$props.id,
+          bookmark: this.$data.bookmark,
+          heading: this.$data.heading,
+          datetime: this.$dayjs().format(),
+          context: this.$data.context,
+        })
+        */
+      },
     },
   },
   watch: {},
@@ -83,7 +111,9 @@ export default {
   created: function() {},
   beforeMount: function() {},
   mounted: function() {
-    this.$nextTick(function() {});
+    this.$nextTick(function() {
+      // console.log(this._memos[0]);
+    });
   },
   beforeUpdate: function() {},
   updated: function() {},
@@ -91,7 +121,48 @@ export default {
   deactivated: function() {},
   beforeDestroy: function() {},
   destroyed: function() {},
-  methods: {},
+  methods: {
+    remove: function() {
+      console.log('Remove');
+    },
+    bookmarking: function() {
+      console.log('bookmark');
+    },
+    save: function() {
+      console.log('Save');
+
+      // this.$store.dispatch('memos', {
+      //   id: this.$props.id,
+      //   heading: this._memos[0].heading,
+      //   datetime: this.$dayjs().format(),
+      //   context: this._memos[0].context,
+      //   bookmark: null,
+      // });
+
+      this.$store.dispatch('save', {
+        id: this.$props.id,
+        heading: this._memos[0].heading,
+        datetime: this.$dayjs().format(),
+        context: this._memos[0].context,
+        bookmark: null,
+      });
+
+      // this.$store.dispatch('appModal', true)
+
+      /*
+      this.$store.getters.memos.find(obj => obj.id === this.$props.id)
+      .heading = this.$data.heading;
+      */
+/*
+      let d = this.$store.getters.memos.filter((obj) => {
+        return obj.id === this.$props.id;
+      });
+
+      d[0].heading = this.$data.heading;
+      d[0].context = this.$data.context;
+*/
+    },
+  },
 };
 </script>
 

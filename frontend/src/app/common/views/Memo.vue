@@ -2,8 +2,6 @@
 
 <template>
   <div class="memo">
-    <p style="font-size: 3rem;">$route.params.id = {{ $route.params.id }}</p>
-    <p style="font-size: 3rem;">$props.id = {{ $props.id }}</p>
     <div class="memo__return-to-toppage">
       <router-link v-ripple to="/">
         <i aria-hidden="true">
@@ -19,7 +17,7 @@
         <span>Return to Toppage</span>
       </router-link>
     </div>
-    <EntityMemo />
+    <EntityMemo :id="$props.id" />
   </div>
 </template>
 
@@ -36,7 +34,7 @@ export default {
   props: {
     'id': {
       type: String,
-      default: null,
+      required: true,
     },
   },
   data: function() {
@@ -53,7 +51,12 @@ export default {
   created: function() {},
   beforeMount: function() {},
   mounted: function() {
-    this.$nextTick(function() {});
+    this.$nextTick(function() {
+      /*
+      console.log(`$route.params.id = ${this.$route.params.id}`);
+      console.log(`$props.id = ${this.$props.id}`)
+      */
+    });
   },
   beforeUpdate: function() {},
   updated: function() {},

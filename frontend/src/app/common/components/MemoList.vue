@@ -9,17 +9,19 @@
       role="list"
     >
       <div
-        v-for="(item, i) in _memos.slice().reverse()"
+        v-for="(item, i) in _memos.slice()"
         :key="i"
         role="listitem"
       >
-        <MemoCard
-          :id="item.id"
-          :bookmark="item.bookmark"
-          :heading="item.heading"
-          :datetime="item.datetime"
-          :context="item.context"
-        />
+        <transition name="fade">
+          <MemoCard
+            :id="item.id"
+            :bookmark="item.bookmark"
+            :heading="item.heading"
+            :datetime="item.datetime"
+            :context="item.context"
+          />
+        </transition>
       </div>
     </div>
     <div
