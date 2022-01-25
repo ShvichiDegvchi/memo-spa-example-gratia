@@ -9,7 +9,7 @@
       role="list"
     >
       <div
-        v-for="(item, i) in _memos.slice()"
+        v-for="(item, i) in _memos"
         :key="i"
         role="listitem"
       >

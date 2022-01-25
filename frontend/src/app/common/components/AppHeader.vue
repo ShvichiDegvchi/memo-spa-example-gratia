@@ -12,10 +12,12 @@
         <Logo :name="$props.name" />
       </div>
       <div
-        v-if="$route.path.indexOf('memos') === -1"
         class="app-header__btn"
       >
-        <Button />
+        <transition name="fade">
+          <Button v-if="$route.path.indexOf('memos') === -1" />
+        </transition>
+        <Counter />
       </div>
     </div>
   </header>
@@ -24,6 +26,7 @@
 <script>
 import Logo from './Logo';
 import Button from './CreatButton';
+import Counter from './Counter';
 
 export default {
   name: '',
@@ -31,6 +34,7 @@ export default {
   components: {
     Logo,
     Button,
+    Counter,
   },
   filter: {},
   props: {
@@ -79,6 +83,12 @@ export default {
       width: #{math.div(140, 3.2)}vw;
       height: #{math.div(48, 3.2)}vw;
     }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 0 .8rem;
   }
 
   button {
