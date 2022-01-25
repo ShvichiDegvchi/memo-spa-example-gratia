@@ -128,7 +128,7 @@ export default {
       this.$store.dispatch('save', {
         id: this.$props.id,
         heading: this._memos[0].heading,
-        datetime: this.$dayjs().format(),
+        datetime: this.$dayjs().valueOf(),
         context: this._memos[0].context,
         bookmark: this._memos[0].bookmark = !this._memos[0].bookmark,
       });
@@ -136,10 +136,6 @@ export default {
     remove: function() {
       this.$store.dispatch('remove', {
         id: this.$props.id,
-        heading: this._memos[0].heading,
-        datetime: this.$dayjs().format(),
-        context: this._memos[0].context,
-        bookmark: this.$data.bookmark,
       });
 
       // Return to Toppage
@@ -149,9 +145,9 @@ export default {
       this.$store.dispatch('save', {
         id: this.$props.id,
         heading: this._memos[0].heading,
-        datetime: this.$dayjs().format(),
+        datetime: this.$dayjs().valueOf(),
         context: this._memos[0].context,
-        bookmark: this.$data.bookmark,
+        bookmark: this._memos[0].bookmark,
       });
     },
   },

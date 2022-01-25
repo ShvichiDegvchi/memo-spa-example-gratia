@@ -113,7 +113,7 @@ export default {
         id: `memo-${this._uid}`,
         heading: this.$data.heading,
         context: this.$data.context,
-        datetime: this.$dayjs().format(),
+        datetime: this.$dayjs().valueOf(),
         bookmark: null,
       });
 

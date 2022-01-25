@@ -58,7 +58,10 @@ export default {
       default: null,
     },
     'datetime': {
-      type: String,
+      type: [
+        String,
+        Number,
+      ],
       default: null,
     },
     'context': {

@@ -61,13 +61,23 @@ export default {
         return memo.bookmark;
       });
 
+      // ↑ の bookmarks を降順で並び替えた配列を準備
+      const bookmarksSort = bookmarks.sort(function(a, b) {
+        return (a.datetime > b.datetime) ? -1 : 1;
+      });
+
       // bookmark: false のものだけの配列準備
       const noBookmarks = this.$store.getters.memos.filter((memo) => {
         return !memo.bookmark;
       });
 
+      // ↑ の noBookmarks を降順で並び替えた配列を準備
+      const noBookmarksSort = noBookmarks.sort(function(a, b) {
+        return (a.datetime > b.datetime) ? -1 : 1;
+      });
+
       // スプレッド構文で Bookmark が先頭側に来る配列を return する。
-      return [...bookmarks, ...noBookmarks];
+      return [...bookmarksSort, ...noBookmarksSort];
     },
   },
   watch: {},
