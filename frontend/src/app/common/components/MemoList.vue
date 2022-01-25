@@ -56,7 +56,18 @@ export default {
   },
   computed: {
     _memos: function() {
-      return this.$store.getters.memos;
+      // bookmark: true のものだけの配列準備
+      const bookmarks = this.$store.getters.memos.filter((memo) => {
+        return memo.bookmark;
+      });
+
+      // bookmark: false のものだけの配列準備
+      const noBookmarks = this.$store.getters.memos.filter((memo) => {
+        return !memo.bookmark;
+      });
+
+      // スプレッド構文で Bookmark が先頭側に来る配列を return する。
+      return [...bookmarks, ...noBookmarks];
     },
   },
   watch: {},

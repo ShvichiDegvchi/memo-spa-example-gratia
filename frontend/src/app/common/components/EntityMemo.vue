@@ -268,6 +268,10 @@ export default {
       touch-action: manipulation;
       -webkit-tap-highlight-color: rgba(#000, 0);
 
+      @media (max-width: 640px) {
+        font-size: 1.2rem;
+      }
+
       &.entity-memo__btn--remove {
         background-color: #424242;
         color: #fff;
