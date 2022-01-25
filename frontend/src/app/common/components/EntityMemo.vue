@@ -28,7 +28,7 @@
           v-if="!$data.focused.textarea"
         >
           <p
-            v-html="_memos[0].context"
+            v-html="_memos[0].context.replace(/\n/g,'<br>')"
             @focus="$data.focused.textarea = !$data.focused.textarea"
             tabindex="0"
           />

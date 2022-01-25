@@ -24,7 +24,7 @@
       </span>
     </div>
     <div class="memo-standalone__context">
-      <p v-html="$props.context" />
+      <p v-html="$props.context.replace(/\n/g,'<br>')" />
     </div>
     <i
       v-if="$props.bookmark"
