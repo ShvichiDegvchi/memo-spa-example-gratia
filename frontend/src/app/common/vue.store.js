@@ -14,25 +14,7 @@ export default new Vuex.Store({
    */
   state: {
     appModal: false, // 初期値（Initial Value）は false とする。
-    memos: [{
-      id: 'memo-01',
-      bookmark: false,
-      heading: '見出し: データ保存に SaaS 等は使っていません。',
-      context: '本文: Vuex に直で入れてるデータです。Local Storage にデータ保存する仕組みにしています。',
-      datetime: '2022',
-    }, {
-      id: 'memo-02',
-      bookmark: true,
-      heading: 'これも Vuex に直で入れてます。動作検証用。',
-      context: '内容内容内容内容内容 フレームワークは Vue.js (V2) + Vue-Router + Vuex です。モジュールバンドラーは Webpack (V5) です。',
-      datetime: '2022',
-    }, {
-      id: 'memo-03',
-      bookmark: false,
-      heading: '動作検証用。',
-      context: '内容内容内容内容内容',
-      datetime: '2022',
-    }],
+    memos: [],
   },
   /**
    * 指定した変数の値を返却するための処理群。
