@@ -64,22 +64,14 @@ export default new Vuex.Store({
       state.memos.unshift(payload);
     },
     remove(state, payload) {
-      const result = state.memos.filter((memo) => {
+      state.memos = state.memos.filter((memo) => {
         return memo.id !== payload.id;
       });
-
-      state.memos = result;
     },
     save(state, payload) {
-      const result = state.memos.map((memo) => {
-        if (memo.id === payload.id) {
-          return payload;
-        } else {
-          return memo;
-        }
+      state.memos = state.memos.map((memo) => {
+        return memo.id === payload.id ? payload : memo;
       });
-
-      state.memos = result;
     },
   },
   plugins: [

@@ -113,9 +113,7 @@ export default {
   created: function() {},
   beforeMount: function() {},
   mounted: function() {
-    this.$nextTick(function() {
-      // console.log(this._memos[0]);
-    });
+    this.$nextTick(function() {});
   },
   beforeUpdate: function() {},
   updated: function() {},

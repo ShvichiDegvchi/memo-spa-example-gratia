@@ -41,22 +41,12 @@ export default {
     return {};
   },
   computed: {},
-  watch: {
-    $route(to, from) {
-      console.log(to);
-      console.log(from);
-    },
-  },
+  watch: {},
   beforeCreate: function() {},
   created: function() {},
   beforeMount: function() {},
   mounted: function() {
-    this.$nextTick(function() {
-      /*
-      console.log(`$route.params.id = ${this.$route.params.id}`);
-      console.log(`$props.id = ${this.$props.id}`)
-      */
-    });
+    this.$nextTick(function() {});
   },
   beforeUpdate: function() {},
   updated: function() {},
