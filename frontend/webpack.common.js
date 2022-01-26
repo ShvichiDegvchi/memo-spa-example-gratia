@@ -6,11 +6,11 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   entry: {
-    'memo-spa-example-gratia/common/js/bundle': './src/index.js',
+    'common/js/bundle': './src/index.js',
   },
   output: {
     filename: '[name].min.js',
-    chunkFilename: `memo-spa-example-gratia/common/js/chunks/[name].min.js`,
+    chunkFilename: `common/js/chunks/[name].min.js`,
     publicPath: '/',
     path: path.resolve(__dirname, 'dist/docs'),
   },
@@ -100,8 +100,8 @@ module.exports = {
         directory: true,
       },
       files: [
-        './dist/docs/memo-spa-example-gratia/*.html',
-        './dist/docs/memo-spa-example-gratia/common/js/*.js',
+        './dist/docs/*.html',
+        './dist/docs/common/js/*.js',
       ],
     }),
   ],

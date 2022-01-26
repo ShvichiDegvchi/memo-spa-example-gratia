@@ -142,9 +142,6 @@ export default {
           fill: currentColor;
         }
       }
-
-      time {
-      }
     }
   }
 
