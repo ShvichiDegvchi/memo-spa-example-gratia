@@ -114,7 +114,7 @@ export default {
         heading: this.$data.heading,
         context: this.$data.context,
         datetime: this.$dayjs().valueOf(),
-        bookmark: null,
+        bookmark: false,
       });
 
       this.$store.dispatch('appModal', false);
