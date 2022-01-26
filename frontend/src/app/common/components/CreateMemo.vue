@@ -7,7 +7,7 @@
   >
     <header>
       <h3>
-        <i aria-hidden="hidden">
+        <i aria-hidden="true">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
