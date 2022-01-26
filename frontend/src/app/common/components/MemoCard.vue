@@ -130,7 +130,7 @@ export default {
       max-width: 100%;
       vertical-align: middle;
       border-radius: 10rem;
-      background-color: #ee4e22;
+      background-color: var(--tangerine);
       color: #fff;
       line-height: 1;
 

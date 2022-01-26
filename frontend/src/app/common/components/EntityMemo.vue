@@ -270,12 +270,12 @@ export default {
 
 
       &.entity-memo__btn--bookmark {
-        background-color: #ee4e22;
+        background-color: var(--tangerine);
         color: #fff;
 
         &.this-invert {
           background-color: #fff;
-          color: #ee4e22;
+          color: var(--tangerine);
         }
       }
 

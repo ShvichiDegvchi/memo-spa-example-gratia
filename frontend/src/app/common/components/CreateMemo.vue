@@ -252,7 +252,7 @@ export default {
 
       &:not([disabled]) {
         box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
-        background-color: #ee4e22;
+        background-color: var(--tangerine);
         color: #fff;
         cursor: pointer;
       }

@@ -74,7 +74,7 @@ export default {
       gap: 0 .4rem;
       padding: 0 1.6rem 0 1rem;
       border-radius: 10rem;
-      background-color: #f7a419;
+      background-color: var(--orange);
       box-shadow: 0 #{math.div(1, 10)}rem #{math.div(3, 10)}rem rgba(#000, .12), 0 #{math.div(1, 10)}rem #{math.div(2, 10)}rem rgba(#000, .24);
       vertical-align: middle;
       color: #fff;
