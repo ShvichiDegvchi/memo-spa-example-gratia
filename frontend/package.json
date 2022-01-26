@@ -2,7 +2,7 @@
   "name": "memo-app-employment-screening",
   "version": "1.0.0",
   "description": "メモアプリ作成（フロントエンドエンジニア選考試験）",
-  "homepage": "",
+  "homepage": "https://shvichidegvchi.github.io/memo-spa-example-gratia/",
   "private": true,
   "main": "./src/index.js",
   "engines": {

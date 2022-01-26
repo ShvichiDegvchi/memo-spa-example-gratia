@@ -14,16 +14,14 @@ html(lang=lang itemscope itemtype="https://schema.org/WebPage" class="no-js")
 
     title #{title}
     meta(property="og:title" content=title)
-
     script(type="module")
       | document.documentElement.classList.remove('no-js');
       | document.documentElement.classList.add('js');
+    link(rel="dns-prefetch" href="https://shvichidegvchi.github.io/")
+    link(rel="preconnect" href="https://shvichidegvchi.github.io/")
 
-    link(rel="dns-prefetch" href="")
-    link(rel="preconnect" href="")
-
-    link(rel="prefetch" href="/common/js/bundle.min.js")
-    link(rel="preload" as="script" href="/common/js/bundle.min.js" crossorigin)
+    link(rel="prefetch" href="/memo-spa-example-gratia/common/js/bundle.min.js")
+    link(rel="preload" as="script" href="/memo-spa-example-gratia/common/js/bundle.min.js" crossorigin)
 
     block meta
 
@@ -87,4 +85,4 @@ html(lang=lang itemscope itemtype="https://schema.org/WebPage" class="no-js")
             template(#heading) Add a new memo
             template(#button) Create
 
-    script(src="/common/js/bundle.min.js" async type="module" crossorigin)
+    script(src="/memo-spa-example-gratia/common/js/bundle.min.js" async type="module" crossorigin)
