@@ -10,3 +10,7 @@ $ npm run init
 # Start browser-sync
 $ npm run bs
 ```
+
+## Hosting
+### Netlify
+https://memo-apprication-frontendengineer-screening-test.netlify.app/
