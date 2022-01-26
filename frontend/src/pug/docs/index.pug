@@ -1,0 +1,12 @@
+extends ../includes/layouts/layout
+
+block vars
+  - var lang = "ja"
+  - var title = "某企業様からのフロントエンドエンジニア選考試験課題"
+  - var description = "メモ管理をするシングルページアプリケーションを実装してください。"
+  - var url = "https://memo-apprication-frontendengineer-screening-test.netlify.app/"
+  - var ogpimage = "https://memo-apprication-frontendengineer-screening-test.netlify.app/common/img/OGP.png"
+  - var type = "website"
+block main
+  transition(name="fade" mode="out-in")
+    router-view
